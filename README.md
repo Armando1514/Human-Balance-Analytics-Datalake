@@ -15,7 +15,7 @@ Using AWS Glue, AWS S3, Python, and Spark, create or generate Python  scripts to
 
 To simulate the data coming from the various sources, you will need to  create your own S3 directories for  customer_landing,  step_trainer_landing, and accelerometer_landing, and copy the data folder there as a starting point.
 
-### **1. Customer Records **
+### **1. Customer Records**
 
 Contains the following fields:
 
@@ -61,6 +61,11 @@ This is how it looks like customer_landing and accelerometer_landing querying th
 The Data Science team has done some preliminary data analysis and determined that the **Accelerometer Records** each match one of the **Customer Records**. They would like you to create 2 AWS Glue Jobs that do the following:
 
 1. Sanitize the  Customer data from the Website (Landing Zone) and only store the  Customer Records who agreed to share their data for research purposes  (Trusted Zone) - creating a Glue Table called **customer_trusted** (customer_trusted.py). Below the query from Athena of the customer_trusted s3 bucket:![customer_trusted](./img/customer_trusted.png)
+
+   A screenshot that shows a select * statement from Athena showing the  customer landing data, where the resulting customer trusted data has no  rows where shareWithResearchAsOfDate is blank.
+
+   ![customer_trusted_blank](./img/customer_trusted_blank.png)
+
 2. Sanitize the Accelerometer data from the Mobile App (Landing Zone) - and only  store Accelerometer Readings from customers who agreed to share their  data for research purposes (Trusted Zone) - creating a Glue Table called **accelerometer_trusted**. Below the query from Athena of the accelerometer_trusted s3 bucket:![accelerometer_trusted](./img/accelerometer_trusted.png)
 
 **NOTE**:
